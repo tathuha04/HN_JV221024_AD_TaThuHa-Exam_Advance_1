@@ -1,5 +1,6 @@
 package ra.run;
 
+import ra.bussinessImp.Author;
 import ra.bussinessImp.Book;
 
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import java.util.Scanner;
 
 public class BookManagement {
 
-    static ArrayList<String> books = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
+    static ArrayList<Author> authors = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -23,12 +25,21 @@ public class BookManagement {
             choice = Integer.parseInt(input.nextLine());
             switch (choice) {
                 case 1:
+                    System.out.println("Nhập số tác giả");
+                    int numberOfAuthor = Integer.parseInt(input.nextLine());
+                    System.out.println("Nhập thông tin tác giả");
+                    for (int i = 0; i < numberOfAuthor; i++) {
+                        authors.add(new Author());
+                        authors.get(i).inputData();
+                    }
                     break;
                 case 2:
-                    System.out.println("Nhập số sách");
-                    int numberOfBook = Integer.parseInt(input.nextLine());
-                    for (int i = 0; i < numberOfBook; i++) {
-
+                    System.out.println("Nhập số sách: ");
+                    int numberBook = Integer.parseInt(input.nextLine());
+                    System.out.println("Nhập thông tin sách");
+                    for (int i = 0; i < numberBook; i++) {
+                        books.add(new Book());
+                        books.get(i).inputData();
                     }
                     break;
                 case 3:
@@ -41,6 +52,6 @@ public class BookManagement {
                 default:
                     System.out.println("chọn lại");
             }
-        } while (choice != 5);
+        } while (true);
     }
 }

@@ -5,7 +5,7 @@ import ra.bussiness.IShop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Author implements IShop {
+public class Author implements IShop {
     Scanner input = new Scanner(System.in);
     private int authorId;
     private String authorName;
@@ -64,10 +64,14 @@ public abstract class Author implements IShop {
         sex = input.nextLine().isEmpty();
         System.out.println("Nhập năm sinh: ");
         year = Integer.parseInt(input.nextLine());
+        System.out.println("-----");
     }
 
     @Override
     public void displayData() {
-
+        System.out.println("Author{" +
+                "authorId=" + this.authorId +
+                ", authorName='" + this.authorName + '\'' +
+                '}');
     }
 }

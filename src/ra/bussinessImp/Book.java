@@ -103,9 +103,10 @@ public class Book implements IShop {
     public void setBookStatus(Boolean bookStatus) {
         this.bookStatus = bookStatus;
     }
-    ArrayList<Book> listBook = new ArrayList<>();
+
     @Override
     public void inputData() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mã sách");
         bookId = Integer.parseInt(input.nextLine());
         System.out.println("Tên sách");
@@ -118,7 +119,7 @@ public class Book implements IShop {
         quantity = Integer.parseInt(input.nextLine());
         System.out.println("Trạng thái sách");
         bookStatus = input.nextLine().isEmpty();
-
+        System.out.println("-------");
         exportPrice = importPrice * RATE;
 
 //        author = chọn tác giả
@@ -126,9 +127,14 @@ public class Book implements IShop {
 
     @Override
     public void displayData() {
-        for (Book book : listBook) {
-            System.out.println(listBook);
-        }
+        System.out.println("Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", exportPrice=" + exportPrice +
+                ", quantity=" + quantity +
+                ", bookStatus=" + bookStatus +
+                '}');
 
     }
 }
